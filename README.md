@@ -1,4 +1,4 @@
-# Tic-Tac-Toe-Project-Python
+# TicTacToe_Game--Python_Poject
 
 Hey! Just started learning python 
 this is my first project created this little game
