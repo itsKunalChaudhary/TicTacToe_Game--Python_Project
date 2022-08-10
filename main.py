@@ -3,8 +3,8 @@ import random
 
 os.system('cls||clear')
 
+#Printing the board
 def display_board(board):
-    
     
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
    
@@ -16,7 +16,7 @@ def display_board(board):
     
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
     
-
+#Asking players to choose marker 'X' or 'O'
 def player_input():
     marker = ' '
 
@@ -27,10 +27,12 @@ def player_input():
         return ('X', 'O')
     else:
         return ('O', 'X')
-        
+
+#Placing plaer's marker at the chosen position
 def place_marker(board, marker, position):
     board[position] = marker
 
+#Checking the Rows, Columns and Diagonals to declare the result of the game
 def win_check(board,mark):
     
     return ((board[7] == mark and board[8] == mark and board[9] == mark) or # across the top
@@ -42,22 +44,26 @@ def win_check(board,mark):
     (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
     (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
 
+#Choosing randomly which player goes first
 def choose_first():
     if random.randint(0, 1) == 0:
         return 'Player 2'
     else:
         return 'Player 1'
 
+#Checking for empty spaces on the board
 def space_check(board, position):
     
     return board[position] == ' '
 
+#Checking if the board is full using the above method
 def full_board_check(board):
     for i in range(1,10):
         if space_check(board, i):
             return False
     return True
 
+#Taking player choice as input for marker position
 def player_choice(board):
     position = 0
     
@@ -66,10 +72,13 @@ def player_choice(board):
         
     return position
 
+#Replay game?
 def replay():
     
     return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
 
+
+#Controling part of the game calling all the above methods
 print('Welcome to Tic Tac Toe!')
 
 while True:
